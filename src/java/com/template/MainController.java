@@ -25,6 +25,7 @@ public class MainController {
     @FXML private TableColumn<PlantaDTO, String> colPorte;
     @FXML private TableColumn<PlantaDTO, Boolean> colGostaAgua;
     @FXML private CheckBox chkGostaAgua;
+    @FXML private Label lblAviso;
 
     // Primeiro a rodar assim que a tela abre
     @FXML
@@ -49,14 +50,12 @@ public class MainController {
 
     @FXML
     private void btnSalvarAction(ActionEvent event) {
-        int id = Integer.parseInt(txtId.getText());
         String nome = txtNome.getText();
         String classificacao = txtClassificacao.getText();
         String porte = txtPorte.getText();
         Boolean gostaAgua = chkGostaAgua.isSelected();
 
         PlantaDTO objPlantaDTO = new PlantaDTO();
-        objPlantaDTO.setId(id);
         objPlantaDTO.setNome(nome);
         objPlantaDTO.setClassificacao(classificacao);
         objPlantaDTO.setPorte(porte);
@@ -67,6 +66,7 @@ public class MainController {
 
         carregarPlantas();
         btnLimparAction(null); // Limpa os campos após salvar
+        lblAviso.setText("Planta cadastrada com sucesso");
     }
 
     @FXML
@@ -89,6 +89,7 @@ public class MainController {
 
         carregarPlantas();
         btnLimparAction(null);
+        lblAviso.setText("Planta atualizada com sucesso");
     }
 
     @FXML
@@ -100,6 +101,7 @@ public class MainController {
 
         carregarPlantas();
         btnLimparAction(null);
+        lblAviso.setText("Planta deletada com sucesso");
     }
 
     @FXML

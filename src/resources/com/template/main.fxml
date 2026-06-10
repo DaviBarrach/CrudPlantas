@@ -114,9 +114,10 @@
             </GridPane>
             <ImageView fitHeight="216.0" fitWidth="282.0" layoutX="34.0" layoutY="434.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../Downloads/flower-bouquet-floral-clip-art-element-transparent-background-png-Photoroom.png" />
+                  <Image url="@../../flower-bouquet-floral-clip-art-element-transparent-background-png-Photoroom.png" />
                </image>
             </ImageView>
+            <Label fx:id="lblAviso" layoutX="224.0" layoutY="330.0" prefHeight="23.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="S_RESIZE" />
