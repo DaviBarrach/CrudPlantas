@@ -7,6 +7,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -25,40 +27,40 @@
 
 <AnchorPane prefHeight="522.0" prefWidth="587.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.template.MainController">
    <children>
-      <Pane prefHeight="560.0" prefWidth="621.0" style="-fx-background-color: #7ec0ee;">
+      <Pane prefHeight="641.0" prefWidth="663.0" style="-fx-background-color: #9fd18a;">
          <children>
-            <TableView fx:id="tblPlanta" layoutX="143.0" layoutY="348.0" onMouseClicked="#carregarCampos" prefHeight="200.0" prefWidth="377.0" style="-fx-background-color: #A5EA89;">
+            <TableView fx:id="tblPlanta" layoutX="120.0" layoutY="353.0" onMouseClicked="#carregarCampos" prefHeight="237.0" prefWidth="430.0" style="-fx-background-color: ffffff; -fx-border-color: #ebb0b0; -fx-border-width: 7;">
               <columns>
-                <TableColumn fx:id="colId" prefWidth="75.0" text="id" />
-                <TableColumn fx:id="colNome" prefWidth="75.0" text="nome" />
-                  <TableColumn fx:id="colClassificacao" prefWidth="75.0" text="classificacao" />
-                  <TableColumn fx:id="colPorte" prefWidth="75.0" text="porte" />
-                  <TableColumn fx:id="colGostaAgua" prefWidth="75.0" text="gosta_agua" />
+                <TableColumn fx:id="colId" prefWidth="43.0" text="id" />
+                <TableColumn fx:id="colNome" prefWidth="84.0" text="nome" />
+                  <TableColumn fx:id="colClassificacao" prefWidth="94.0" text="classificacao" />
+                  <TableColumn fx:id="colPorte" prefWidth="72.0" text="porte" />
+                  <TableColumn fx:id="colGostaAgua" prefWidth="121.5999755859375" text="gosta_agua" />
               </columns>
             </TableView>
-            <Label graphicTextGap="10.0" layoutX="110.0" layoutY="25.0" text="CADASTRE SUA VERDINHA">
+            <Label graphicTextGap="10.0" layoutX="110.0" layoutY="25.0" text="CADASTRE SUA VERDINHA" textFill="#1d4d08">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
             <VBox alignment="TOP_CENTER" layoutX="439.0" layoutY="114.0" prefHeight="200.0" prefWidth="100.0" style="-fx-spacing: 15;">
                <children>
-                  <Button fx:id="btnLimpar" mnemonicParsing="false" onAction="#btnLimparAction" prefHeight="37.0" prefWidth="105.0" style="-fx-background-color: #F8FF1F;" text="Limpar">
+                  <Button fx:id="btnLimpar" mnemonicParsing="false" onAction="#btnLimparAction" prefHeight="37.0" prefWidth="105.0" style="-fx-background-color: #f2bfbf;" text="Limpar" textFill="#1d4d08">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnSalvar" mnemonicParsing="false" onAction="#btnSalvarAction" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #F8FF1F;" text="Salvar">
+                  <Button fx:id="btnSalvar" mnemonicParsing="false" onAction="#btnSalvarAction" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #f2bfbf;" text="Salvar" textFill="#1d4d08">
                      <font>
                         <Font name="System Bold Italic" size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnAtualizar" mnemonicParsing="false" onAction="#btnAtualizarAction" prefHeight="37.0" prefWidth="109.0" style="-fx-background-color: #F8FF1F;" text="Atualizar">
+                  <Button fx:id="btnAtualizar" mnemonicParsing="false" onAction="#btnAtualizarAction" prefHeight="37.0" prefWidth="109.0" style="-fx-background-color: #f2bfbf;" text="Atualizar" textFill="#1d4d08">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnDeletar" mnemonicParsing="false" onAction="#btnDeletarAction" prefHeight="37.0" prefWidth="107.0" style="-fx-background-color: FD212C; -fx-font: #33ff08;" text="Deletar">
+                  <Button fx:id="btnDeletar" mnemonicParsing="false" onAction="#btnDeletarAction" prefHeight="37.0" prefWidth="107.0" style="-fx-background-color: #ebb0b0; -fx-font: #33ff08;" text="Deletar" textFill="#1d4d08">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
@@ -78,27 +80,27 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Id">
+                  <Label text="Id" textFill="#1d4d08">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label text="Nome" GridPane.rowIndex="1">
+                  <Label text="Nome" textFill="#1d4d08" GridPane.rowIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label text="Classificação" GridPane.rowIndex="2">
+                  <Label text="Classificação" textFill="#1d4d08" GridPane.rowIndex="2">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label text="Porte" GridPane.rowIndex="3">
+                  <Label text="Porte" textFill="#1d4d08" GridPane.rowIndex="3">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label text="Gosta de água?" GridPane.rowIndex="4">
+                  <Label text="Gosta de água?" textFill="#1d4d08" GridPane.rowIndex="4">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -110,6 +112,11 @@
                   <CheckBox fx:id="chkGostaAgua" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="18.0" prefWidth="12.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                </children>
             </GridPane>
+            <ImageView fitHeight="216.0" fitWidth="282.0" layoutX="34.0" layoutY="434.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Downloads/flower-bouquet-floral-clip-art-element-transparent-background-png-Photoroom.png" />
+               </image>
+            </ImageView>
          </children>
          <cursor>
             <Cursor fx:constant="S_RESIZE" />

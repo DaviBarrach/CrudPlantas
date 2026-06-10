@@ -29,7 +29,6 @@ public class MainController {
     // Primeiro a rodar assim que a tela abre
     @FXML
     private void initialize() {
-        System.out.println("FXML carregado com sucesso!");
 
         // Relacionando as colunas da tabela com os atributos EXATOS (getters) do PlantaDTO
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
