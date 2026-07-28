@@ -20,22 +20,22 @@
 <!--
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.template.MainController"
+            fx:controller="com.template.controller.MainController"
             prefHeight="400.0" prefWidth="600.0">
 
 </AnchorPane> -->
 
-<AnchorPane prefHeight="522.0" prefWidth="587.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.template.MainController">
+<AnchorPane prefHeight="522.0" prefWidth="587.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.template.controller.MainController">
    <children>
       <Pane prefHeight="641.0" prefWidth="663.0" style="-fx-background-color: #9fd18a;">
          <children>
-            <TableView fx:id="tblPlanta" layoutX="120.0" layoutY="353.0" onMouseClicked="#carregarCampos" prefHeight="237.0" prefWidth="430.0" style="-fx-background-color: ffffff; -fx-border-color: #ebb0b0; -fx-border-width: 7;">
+            <TableView fx:id="tblPlanta" layoutX="160.0" layoutY="357.0" onMouseClicked="#carregarCampos" prefHeight="237.0" prefWidth="383.0" style="-fx-background-color: ffffff; -fx-border-color: #ebb0b0; -fx-border-width: 7;">
               <columns>
                 <TableColumn fx:id="colId" prefWidth="43.0" text="id" />
                 <TableColumn fx:id="colNome" prefWidth="84.0" text="nome" />
                   <TableColumn fx:id="colClassificacao" prefWidth="94.0" text="classificacao" />
                   <TableColumn fx:id="colPorte" prefWidth="72.0" text="porte" />
-                  <TableColumn fx:id="colGostaAgua" prefWidth="121.5999755859375" text="gosta_agua" />
+                  <TableColumn fx:id="colGostaAgua" prefWidth="76.0" text="gosta_agua" />
               </columns>
             </TableView>
             <Label graphicTextGap="10.0" layoutX="110.0" layoutY="25.0" text="CADASTRE SUA VERDINHA" textFill="#1d4d08">
@@ -43,7 +43,7 @@
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-            <VBox alignment="TOP_CENTER" layoutX="439.0" layoutY="114.0" prefHeight="200.0" prefWidth="100.0" style="-fx-spacing: 15;">
+            <VBox alignment="TOP_CENTER" layoutX="462.0" layoutY="100.0" prefHeight="200.0" prefWidth="100.0" style="-fx-spacing: 15;">
                <children>
                   <Button fx:id="btnLimpar" mnemonicParsing="false" onAction="#btnLimparAction" prefHeight="37.0" prefWidth="105.0" style="-fx-background-color: #f2bfbf;" text="Limpar" textFill="#1d4d08">
                      <font>
@@ -67,7 +67,7 @@
                   </Button>
                </children>
             </VBox>
-            <GridPane alignment="CENTER" layoutX="79.0" layoutY="117.0" prefHeight="196.0" prefWidth="319.0" style="-fx-alignment: center;">
+            <GridPane alignment="CENTER" layoutX="102.0" layoutY="103.0" prefHeight="196.0" prefWidth="319.0" style="-fx-alignment: center;">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.27951049804688" minWidth="10.0" prefWidth="119.8758544921875" />
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="199.1241455078125" minWidth="10.0" prefWidth="199.1241455078125" />
@@ -106,18 +106,21 @@
                      </font>
                   </Label>
                   <TextField fx:id="txtId" disable="true" GridPane.columnIndex="1" />
-                  <TextField fx:id="txtNome" prefHeight="26.0" prefWidth="113.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="txtClassificacao" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="txtPorte" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="txtNome" prefHeight="26.0" prefWidth="113.0" promptText="Ex: Coqueiro" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtClassificacao" promptText="Ex: Angiosperma" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtPorte" promptText="Ex: Grande" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <CheckBox fx:id="chkGostaAgua" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="18.0" prefWidth="12.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                </children>
             </GridPane>
-            <ImageView fitHeight="216.0" fitWidth="282.0" layoutX="34.0" layoutY="434.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="216.0" fitWidth="282.0" layoutX="74.0" layoutY="438.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../flower-bouquet-floral-clip-art-element-transparent-background-png-Photoroom.png" />
                </image>
             </ImageView>
-            <Label fx:id="lblAviso" layoutX="224.0" layoutY="330.0" prefHeight="23.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" textAlignment="CENTER" />
+            <Label fx:id="lblAviso" alignment="CENTER" layoutX="160.0" layoutY="321.0" prefHeight="37.0" prefWidth="383.0" style="-fx-background-color: #f2bfbf;" textAlignment="CENTER" textFill="#1d4d08">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font></Label>
          </children>
          <cursor>
             <Cursor fx:constant="S_RESIZE" />

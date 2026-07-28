@@ -1,4 +1,4 @@
-package com.template;
+package com.template.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +8,10 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-    //Classe com os métodos de Crud
+import static com.template.util.DialogUtil.mostrarErro;
+
+
+//Classe com os métodos de Crud
     public class PlantaDAO {
 
         public void cadastrarPlanta(PlantaDTO planta) {
@@ -22,6 +25,7 @@ import java.util.logging.Logger;
                 ps.execute();
             } catch (SQLException ex){
                 Logger.getLogger(PlantaDAO.class.getName()).log(Level.SEVERE, null, ex);
+                mostrarErro("Erro ao cadastrar a planta.");
             }
         }
 
@@ -43,6 +47,7 @@ import java.util.logging.Logger;
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(PlantaDAO.class.getName()).log(Level.SEVERE, null, ex);
+                mostrarErro("Erro ao cadastrar a planta.");
             }
 
             return listaPlantas;
@@ -60,6 +65,7 @@ import java.util.logging.Logger;
                 ps.execute();
             } catch (SQLException ex) {
                 Logger.getLogger(PlantaDAO.class.getName()).log(Level.SEVERE, null, ex);
+                mostrarErro("Erro ao atualizar a planta.");
             }
 
         }
@@ -71,6 +77,7 @@ import java.util.logging.Logger;
                 ps.execute();
             } catch (SQLException ex) {
                 Logger.getLogger(PlantaDAO.class.getName()).log(Level.SEVERE, null, ex);
+                mostrarErro("Erro ao deletar a planta.");
             }
         }
     }

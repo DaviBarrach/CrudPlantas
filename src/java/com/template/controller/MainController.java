@@ -1,5 +1,7 @@
-package com.template;
+package com.template.controller;
 
+import com.template.model.PlantaDAO;
+import com.template.model.PlantaDTO;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -89,7 +91,7 @@ public class MainController {
 
         carregarPlantas();
         btnLimparAction(null);
-        lblAviso.setText("Planta atualizada com sucesso");
+        lblAviso.setText("Planta atualizada com sucesso.");
     }
 
     @FXML
