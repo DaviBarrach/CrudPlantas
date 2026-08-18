@@ -4,6 +4,8 @@ import static com.template.util.DialogUtil.mostrarAviso;
 
 public class PlantaValidator {
 
+    /*OCP é aberto para integração, mas fechado para manutenção*/
+
     public static boolean validarPlanta(String nome, String classificacao, String porte){
         if(nome.isEmpty() || classificacao.isEmpty() || porte.isEmpty()){
             mostrarAviso("Preencha todos os campos!");
