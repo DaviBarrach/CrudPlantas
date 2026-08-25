@@ -10,6 +10,7 @@ public class ClassificacaoValidador implements Validador<String>{
 
     @Override
     public boolean validar(String classificacao) {
+
         if(classificacao.toUpperCase().contains("ANGIOSPERMA") || classificacao.toUpperCase().contains("GIMNOSPERMA")
                 || classificacao.toUpperCase().contains("PTERIDOFITAS") || classificacao.toUpperCase().contains("BRIOFITA")){
             return true;

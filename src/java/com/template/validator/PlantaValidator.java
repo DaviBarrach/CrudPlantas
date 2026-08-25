@@ -1,5 +1,8 @@
 package com.template.validator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.template.util.DialogUtil.mostrarAviso;
 
 public class PlantaValidator {
@@ -7,34 +10,25 @@ public class PlantaValidator {
     /*OCP é aberto para integração, mas fechado para manutenção*/
 
     public static boolean validarPlanta(String nome, String classificacao, String porte){
-        if(nome.isEmpty() || classificacao.isEmpty() || porte.isEmpty()){
-            mostrarAviso("Preencha todos os campos!");
-            return false;
-        }
-        if(!validarClassificacao(classificacao)){
-            mostrarAviso("Preencha a classificacao com angiosperma, gimnosperma, pteridofita ou briofita!!");
-            return false;
-        }
-        if(!validarPorte(porte)){
-            mostrarAviso("Preencha o porte com pequeno, medio ou grande!");
-            return false;
+
+        //lista que herda a interface e guarda seus objetos
+        List<Validador<String>> validadores = new ArrayList<>();
+
+        validadores.add(new CampoObrigatorioValidador("nome", nome));
+        validadores.add(new CampoObrigatorioValidador("porte", porte));
+        validadores.add(new CampoObrigatorioValidador("classificacao", classificacao));
+        validadores.add(new PorteValidador(porte));
+        validadores.add(new ClassificacaoValidador(classificacao));
+
+        //foreach na lista de validador
+        for(Validador<String> validador : validadores){
+            if(!validador.validar(validador.getValor())){
+                mostrarAviso(validador.getMensagemErro());
+                return false;
+            }
+
         }
         return true;
-    }
-
-    public static boolean validarClassificacao(String classificacao){
-        if(classificacao.toUpperCase().contains("ANGIOSPERMA") || classificacao.toUpperCase().contains("GIMNOSPERMA")
-        || classificacao.toUpperCase().contains("PTERIDOFITAS") || classificacao.toUpperCase().contains("BRIOFITA")){
-            return true;
-        }
-        return false;
-    }
-
-    public static boolean validarPorte(String porte){
-        if(porte.toUpperCase().contains("GRANDE") || porte.toUpperCase().contains("MEDIO") || porte.toUpperCase().contains("PEQUENO")){
-            return true;
-        }
-        return false;
     }
 
 
