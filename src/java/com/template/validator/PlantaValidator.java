@@ -25,19 +25,4 @@ public class PlantaValidator implements IPlantaValidator{
         }
         return true;
     }
-
-    @Override
-    public boolean validarNome(String nome) {
-        return new CampoObrigatorioValidador("nome", nome).validar(nome);
-    }
-
-    @Override
-    public boolean validarPorte(String porte) {
-        return new PorteValidador(porte).validar(porte);
-    }
-
-    @Override
-    public boolean validarClassificacao(String classificacao) {
-        return new ClassificacaoValidador(classificacao).validar(classificacao);
-    }
 }
