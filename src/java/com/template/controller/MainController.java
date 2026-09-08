@@ -1,21 +1,19 @@
 package com.template.controller;
 
-import com.template.model.PlantaDAO;
 import com.template.model.PlantaDTO;
+import com.template.service.CampoService;
 import com.template.service.PlantaService;
 import com.template.validator.IPlantaValidator;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.util.ArrayList;
-
 
 public class MainController {
 
     private final IPlantaValidator pValidator;
+    private final CampoService campoService = new CampoService();
 
     public MainController(IPlantaValidator pValidator) {
         this.pValidator = pValidator;
@@ -46,7 +44,7 @@ public class MainController {
         colPorte.setCellValueFactory(new PropertyValueFactory<>("porte"));
         colGostaAgua.setCellValueFactory(new PropertyValueFactory<>("gostaAgua"));
 
-        carregarPlantas();
+        campoService.carregarPlantas(tblPlanta);
 
         tblPlanta.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
@@ -68,14 +66,16 @@ public class MainController {
 
         PlantaService service = new PlantaService();
         PlantaDTO objPlantaDTO = new PlantaDTO();
+
         objPlantaDTO.setNome(nome);
         objPlantaDTO.setClassificacao(classificacao);
         objPlantaDTO.setPorte(porte);
         objPlantaDTO.setGostaAgua(gostaAgua);
 
         service.salvarPlanta(objPlantaDTO);
-        carregarPlantas();
-        btnLimparAction(null);
+        campoService.carregarPlantas(tblPlanta);
+        campoService.limparCampos(txtId, txtNome, txtClassificacao, txtPorte, chkGostaAgua);
+
         lblAviso.setText("Planta cadastrada com sucesso");
     }
 
@@ -93,6 +93,7 @@ public class MainController {
 
         PlantaService service = new PlantaService();
         PlantaDTO objPlantaDTO = new PlantaDTO();
+
         objPlantaDTO.setId(id);
         objPlantaDTO.setNome(nome);
         objPlantaDTO.setClassificacao(classificacao);
@@ -100,8 +101,9 @@ public class MainController {
         objPlantaDTO.setGostaAgua(gostaAgua);
 
         service.modificarPlanta(objPlantaDTO);
-        carregarPlantas();
-        btnLimparAction(null);
+        campoService.carregarPlantas(tblPlanta);
+        campoService.limparCampos(txtId, txtNome, txtClassificacao, txtPorte, chkGostaAgua);
+
         lblAviso.setText("Planta atualizada com sucesso.");
     }
 
@@ -111,25 +113,15 @@ public class MainController {
         int id = Integer.parseInt(txtId.getText());
 
         service.apagarPlanta(id);
-        carregarPlantas();
-        btnLimparAction(null);
+        campoService.carregarPlantas(tblPlanta);
+        campoService.limparCampos(txtId, txtNome, txtClassificacao, txtPorte, chkGostaAgua);
+
         lblAviso.setText("Planta deletada com sucesso");
     }
 
     @FXML
     private void btnLimparAction(ActionEvent event) {
-        txtId.clear();
-        txtNome.clear();
-        txtClassificacao.clear();
-        txtPorte.clear();
-        chkGostaAgua.setSelected(false);
-    }
-
-    @FXML
-    private void carregarPlantas() {
-        PlantaService service = new PlantaService();
-        ArrayList<PlantaDTO> listaPlanta = service.listarTodas();
-        tblPlanta.setItems(FXCollections.observableArrayList(listaPlanta));
+        campoService.limparCampos(txtId, txtNome, txtClassificacao, txtPorte, chkGostaAgua);
     }
 
     @FXML
